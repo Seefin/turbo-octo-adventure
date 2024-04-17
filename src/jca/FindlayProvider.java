@@ -22,12 +22,9 @@ public class FindlayProvider extends Provider {
      */
     protected FindlayProvider(String name, double version, String info) {
         super(name, version, info);
-        AccessController.doPrivileged(new PrivilegedAction<Void>(){
-            @Override
-            public Void run() {
-                installStuff();
-                return null;
-            }
+        AccessController.doPrivileged((PrivilegedAction<Void>) () -> {
+            installStuff();
+            return null;
         });
     }
 

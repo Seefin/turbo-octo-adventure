@@ -2,7 +2,6 @@ import jca.FindlayProvider;
 import sun.misc.Unsafe;
 
 import javax.crypto.*;
-import java.io.IOError;
 import java.lang.reflect.Field;
 import java.security.*;
 import java.util.Arrays;

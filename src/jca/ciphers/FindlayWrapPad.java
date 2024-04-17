@@ -5,10 +5,6 @@ import java.security.*;
 import java.security.spec.AlgorithmParameterSpec;
 
 public class FindlayWrapPad extends CipherSpi {
-    private int mode = -1;
-    private Key key = null;
-    private SecureRandom appRandom = new SecureRandom();
-
     private Cipher AES;
 
     @Override
@@ -43,12 +39,9 @@ public class FindlayWrapPad extends CipherSpi {
 
     @Override
     protected void engineInit(int i, Key key, SecureRandom secureRandom) throws InvalidKeyException {
-        this.mode = i;
-        this.key = key;
-        this.appRandom = secureRandom;
         try {
             this.AES = Cipher.getInstance("AES");
-            this.AES.init(this.mode, this.key, this.appRandom);
+            this.AES.init(i, key, secureRandom);
         } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
             throw new RuntimeException(e);
         }
