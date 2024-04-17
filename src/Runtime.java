@@ -8,6 +8,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.function.Function;
 
+/** Demonstrate JCE signing bypass.
+ *
+ */
 public class Runtime {
     public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchProviderException, SignatureException, InvalidKeyException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
         patchJCESigningOut();
